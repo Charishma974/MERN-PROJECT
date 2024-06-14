@@ -1,5 +1,12 @@
-const app = require("./app");
+const app = require("./app.js");
 
-const server = app.listen(3000,()=>{
-    console.log(`Server Running on http://localhost:3000`);
+const dotenv = require("dotenv");
+
+
+// Config
+
+dotenv.config({path: "backend/config/config.env"});
+
+app.listen(process.env.PORT,()=>{
+    console.log(`Server is working on http://localhost:${process.env.PORT}`)
 })
